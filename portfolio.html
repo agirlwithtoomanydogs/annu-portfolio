@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selected Work — Annu Singh</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #0a0a0a;
+    --surface:   #111111;
+    --surface2:  #161616;
+    --border:    rgba(255,255,255,0.08);
+    --border2:   rgba(255,255,255,0.04);
+    --text:      #f0ece4;
+    --muted:     rgba(240,236,228,0.45);
+    --faint:     rgba(240,236,228,0.18);
+    --accent:    #b8d4b0;
+    --gold:      #d4a853;
+    --glow:      rgba(184,212,176,0.06);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* BACK */
+  .back-bar {
+    padding: 20px 48px;
+    border-bottom: 1px solid var(--border2);
+  }
+  .back-bar a {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+  .back-bar a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 96px 48px 72px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 28px; height: 1px;
+    background: var(--accent);
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 28px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 500px;
+    line-height: 1.85;
+    margin-bottom: 40px;
+  }
+
+  .pill-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .pill {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--muted);
+  }
+
+  /* DIVIDER */
+  .divider {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 48px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* CASE STUDIES */
+  .cs-list {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 48px 120px;
+  }
+
+  .cs-item {
+    border-bottom: 1px solid var(--border);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: rise 0.7s ease forwards;
+  }
+  .cs-item:nth-child(1) { animation-delay: 0.05s; }
+  .cs-item:nth-child(2) { animation-delay: 0.18s; }
+  .cs-item:nth-child(3) { animation-delay: 0.31s; }
+
+  @keyframes rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* CS TRIGGER */
+  .cs-trigger {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 48px 0 40px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 24px;
+    text-align: left;
+  }
+  .cs-trigger:hover .cs-title { color: var(--accent); }
+  .cs-trigger:hover .expand-btn { background: var(--accent); color: var(--bg); }
+
+  .cs-index {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin-bottom: 14px;
+  }
+
+  .cs-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--text);
+    transition: color 0.25s;
+    margin-bottom: 18px;
+  }
+
+  .cs-company {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+
+  .cs-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .cs-tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--faint);
+  }
+
+  .expand-btn {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    font-size: 20px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s;
+    flex-shrink: 0;
+    margin-top: 4px;
+    line-height: 1;
+  }
+
+  .star-flag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(212,168,83,0.3);
+    padding: 5px 12px;
+    border-radius: 2px;
+    margin-bottom: 14px;
+  }
+
+  /* CS BODY */
+  .cs-body { display: none; padding: 0 0 56px; }
+  .cs-body.open { display: block; }
+
+  /* CONTEXT */
+  .context {
+    padding: 28px 32px;
+    background: var(--surface);
+    border-left: 2px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 48px;
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(240,236,228,0.8);
+    line-height: 1.85;
+  }
+
+  /* SECTION LABEL */
+  .s-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .s-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* PROBLEM LIST */
+  .problem-list { list-style: none; margin-bottom: 48px; }
+  .problem-list li {
+    padding: 14px 0 14px 24px;
+    border-bottom: 1px solid var(--border2);
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(240,236,228,0.7);
+    line-height: 1.75;
+    position: relative;
+  }
+  .problem-list li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--faint);
+  }
+  .problem-list li:last-child { border-bottom: none; }
+
+  /* ACTIONS */
+  .actions { margin-bottom: 48px; }
+  .action {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border2);
+  }
+  .action:last-child { border-bottom: none; }
+  .action-head {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .action-dot {
+    width: 5px; height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .action p {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.8;
+    padding-left: 15px;
+  }
+
+  /* RESULTS GRID */
+  .results {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+  .r-cell {
+    background: var(--surface);
+    padding: 28px 16px;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .r-cell:hover { background: var(--surface2); }
+  .r-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--accent);
+    display: block;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .r-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 5px;
+  }
+  .r-sub {
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--faint);
+    display: block;
+    line-height: 1.5;
+  }
+
+  /* SKILLS */
+  .skill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border2);
+    margin-bottom: 24px;
+  }
+  .skill {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 5px 14px;
+    background: var(--glow);
+    border: 1px solid rgba(184,212,176,0.15);
+    color: var(--accent);
+    border-radius: 2px;
+  }
+
+  /* CONF NOTE */
+  .conf {
+    font-size: 12px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--faint);
+    padding: 14px 20px;
+    border: 1px solid var(--border2);
+    border-radius: 2px;
+    background: var(--surface2);
+  }
+
+  /* FOOTER */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 64px 48px;
+    text-align: center;
+  }
+  .footer-inner { max-width: 900px; margin: 0 auto; }
+  .footer h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(240,236,228,0.6);
+    margin-bottom: 16px;
+  }
+  .footer p {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .back-bar, .hero, .cs-list, .footer { padding-left: 20px; padding-right: 20px; }
+    .results { grid-template-columns: repeat(2, 1fr); }
+    .cs-trigger { grid-template-columns: 1fr; }
+    .expand-btn { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="back-bar">
+  <a href="https://agirlwithtoomanydogs.github.io/annu-portfolio/">← Back to Portfolio</a>
+</div>
+
+<section class="hero">
+  <p class="eyebrow">Selected Work</p>
+  <h1>Three projects.<br><em>Real stakes.</em><br>Measurable results.</h1>
+  <p class="hero-sub">Strategy and storytelling across crypto, fintech, and entertainment finance. No filler. Every project had a business problem, a clear approach, and a result that mattered.</p>
+  <div class="pill-row">
+    <span class="pill">Content Strategy</span>
+    <span class="pill">Product Marketing</span>
+    <span class="pill">Brand & Storytelling</span>
+    <span class="pill">Investor Comms</span>
+    <span class="pill">GTM Strategy</span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<div class="cs-list">
+
+  <!-- CS 01 -->
+  <div class="cs-item">
+    <button class="cs-trigger" onclick="toggle(this)">
+      <div>
+        <p class="cs-index">Case Study · 01</p>
+        <h2 class="cs-title">30 B2B Case Studies. 30 Days. One System That Changed How a Crypto Agency Sells.</h2>
+        <p class="cs-company">Blockwiz · Crypto Marketing Agency · B2B</p>
+        <div class="cs-tags">
+          <span class="cs-tag">Content Strategy</span>
+          <span class="cs-tag">Sales Enablement</span>
+          <span class="cs-tag">Scaled Execution</span>
+          <span class="cs-tag">Web3</span>
+        </div>
+      </div>
+      <span class="expand-btn">+</span>
+    </button>
+    <div class="cs-body">
+      <div class="context">
+        Blockwiz is one of the leading crypto marketing agencies — DeFi, NFT launches, community growth, Web3 GTM. Fast-growing, strong client work, but no standardised way to show it. Sales conversations were long. New client trust was slow to build. The fix: a full library of onboarding case studies — 30 of them, in 30 days. Not an archive. A sales weapon.
+      </div>
+
+      <p class="s-label">The Problem</p>
+      <ul class="problem-list">
+        <li>No consistent proof system — every salesperson told the story differently</li>
+        <li>Strong client results existed but lived as scattered internal data, not narratives</li>
+        <li>New prospects couldn't quickly see what success looked like with Blockwiz</li>
+        <li>Sales cycles were longer than they needed to be</li>
+        <li>The agency was scaling — it needed a reusable system, not one-off documents</li>
+      </ul>
+
+      <p class="s-label">What I Did</p>
+      <div class="actions">
+        <div class="action">
+          <p class="action-head"><span class="action-dot"></span>Designed the Framework Before Writing a Word</p>
+          <p>Built the repeatable structure first — a format that worked across DeFi, NFTs, influencer campaigns, and community growth. The architecture: Client Context → Problem → Strategy → Execution → Impact → Client Voice. The skeleton all 30 were built on.</p>
+        </div>
+        <div class="action">
+          <p class="action-head"><span class="action-dot"></span>Found the Story Inside the Data</p>
+          <p>The real work wasn't writing — it was identifying the sharpest angle for each case: what made this client's problem interesting, and what made the result meaningful beyond the numbers.</p>
+        </div>
+        <div class="action">
+          <p class="action-head"><span class="action-dot"></span>Produced 30 in 30 Days at Consistent Quality</p>
+          <p>Delivered the complete library — full coverage across the Blockwiz service range. Each piece worked as both a standalone proof point and a tool for handling sales objections. Quality held consistent across the entire volume.</p>
+        </div>
+      </div>
+
+      <p class="s-label">Results</p>
+      <div class="results">
+        <div class="r-cell">
+          <span class="r-num">30</span>
+          <span class="r-label">Case Studies</span>
+          <span class="r-sub">Delivered in 30 days</span>
+        </div>
+        <div class="r-cell">
+          <span class="r-num">45%</span>
+          <span class="r-label">Onboarding Lift</span>
+          <span class="r-sub">Faster client trust via audience-led content</span>
+        </div>
+        <div class="r-cell">
+          <span class="r-num">1</span>
+          <span class="r-label">Reusable System</span>
+          <span class="r-sub">Framework used beyond the project</span>
+        </div>
+        <div class="r-cell">
+          <span class="r-num">↓</span>
+          <span class="r-label">Sales Cycle Length</span>
+          <span class="r-sub">Reduced time-to-credibility for prospects</span>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <span class="skill">Content at Scale</span>
+        <span class="skill">B2B Sales Enablement</span>
+        <span class="skill">Framework Design</span>
+        <span class="skill">Editorial Judgment</span>
+        <span class="skill">Crypto / Web3</span>
+      </div>
+      <p class="conf">Full documents cannot be shared publicly due to client confidentiality. Selected samples available upon request.</p>
+    </div>
+  </div>
+
+  <!-- CS 02 -->
+  <div class="cs-item">
+    <button class="cs-trigger" onclick="toggle(this)">
+      <div>
+        <p class="cs-index">Case Study · 02</p>
+        <span class="star-flag">★ Star Project</span>
+        <h2 class="cs-title">₹8.3 Crore. Two Months. Zero Paid Media. How I Turned an Investor Trust Crisis Into a Growth Moment.</h2>
+        <p class="cs-company">BetterInvest · Fintech · Media & Entertainment Finance</p>
+        <div class="cs-tags">
+          <span class="cs-tag">Retention Marketing</span>
+          <span class="cs-tag">Investor Comms</span>
+          <span class="cs-tag">Crisis Communication</span>
+          <span class="cs-tag">Revenue Impact</span>
+        </div>
+      </div>
+      <span class="expand-btn">+</span>
+    </button>
+    <div class="cs-body">
+      <div class="context">
+        BetterInvest advances 70% of the contract value of broadcasting, OTT, and music rights to content producers via invoice discounting — then collects repayment once rights are monetised. Track record: ₹462+ Cr GTV, 102 contracts, 0% credit default rate. But when a film release date moves, OTT windows move with it — and investor repayments move too. Cascading delays had investor anxiety rising and fresh inflow stalled.
+      </div>
+
+      <p class="s-label">The Problem</p>
+      <ul class="problem-list">
+        <li>Production delays — shoot extensions, release pushbacks, actor unavailability — cascading into repayment delays</li>
+        <li>HNI and retail investors receiving insufficient communication about why or when</li>
+        <li>The 0% default rate was a powerful fact — not being communicated actively enough</li>
+        <li>Investors conflating delay with default — a perception problem, not a financial one</li>
+        <li>Fresh investment had slowed as word-of-mouth sentiment softened</li>
+        <li>No structured retention or re-engagement strategy existed</li>
+      </ul>
+
+      <p class="s-label">What I Did</p>
+      <div class="actions">
+        <div class="action">
+          <p class="action-head"><span class="action-dot"></span>Reframed the Problem Internally First</p>
+          <p>This wasn't a repayment problem — it was a perception problem. The central insight: delayed repayment and default are not the same thing. Most investors were conflating the two. The campaign's job was to separate them clearly, repeatedly, and credibly.</p>
+        </div>
+        <div class="action">
+          <p class="action-head"><span class="action-dot"></span>Email Sequences — Transparent, Anchored on Track Record</p>
+          <p>Structured update emails explaining entertainment rights discounting in plain language. Each anchored on the 0% default track record and gave investors a clear picture of project-specific timelines. Tone: confident and honest, never defensive.</p>
+        </div>
+        <div class="action">
+          <p class="action-head"><span class="action-dot"></span>WhatsApp Outreach — Personal, Not Templated</p>
+          <p>Direct personalised outreach to HNI investors showing signs of disengagement. High-trust and conversational. This channel reactivated investors who had gone completely silent — a personal message from someone who understood their concern carried far more than any broadcast.</p>
+        </div>
+        <div class="action">
+          <p class="action-head"><span class="action-dot"></span>Investor Newsletters — Education as Retention</p>
+          <p>Regular newsletters that went beyond updates: how entertainment rights discounting works, why release delays are industry-structural not company failures, what a 0% default rate means in practice. Built understanding, not just reassurance.</p>
+        </div>
+      </div>
+
+      <p class="s-label">Results</p>
+      <div class="results">
+        <div class="r-cell">
+          <span class="r-num">₹8.3Cr</span>
+          <span class="r-label">Fresh Investment</span>
+          <span class="r-sub">Organic. Zero paid media.</span>
+        </div>
+        <div class="r-cell">
+          <span class="r-num">2 mo</span>
+          <span class="r-label">Campaign Window</span>
+          <span class="r-sub">Full turnaround timeline</span>
+        </div>
+        <div class="r-cell">
+          <span class="r-num">53%</span>
+          <span class="r-label">Avg Email Open Rate</span>
+          <span class="r-sub">37% reply rate across 96+ campaigns</span>
+        </div>
+        <div class="r-cell">
+          <span class="r-num">0%</span>
+          <span class="r-label">Default Rate</span>
+          <span class="r-sub">The fact that won them back</span>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <span class="skill">Retention Over Acquisition</span>
+        <span class="skill">Crisis Communication</span>
+        <span class="skill">Revenue Impact Ownership</span>
+        <span class="skill">Investor Messaging</span>
+        <span class="skill">Narrative Reframing</span>
+      </div>
+      <p class="conf">Specific investor data, campaign assets, and financial figures are confidential. Full breakdown available upon request.</p>
+    </div>
+  </div>
+
+  <!-- CS 03 -->
+  <div class="cs-item">
+    <button class="cs-trigger" onclick="toggle(this)">
+      <div>
+        <p class="cs-index">Case Study · 03</p>
+        <h2 class="cs-title">Launching India's Media & Entertainment AIF: From Trust Problem to a ₹300 Crore Fund Narrative.</h2>
+        <p class="cs-company">BetterInvest · Fintech · AIF Category II</p>
+        <div class="cs-tags">
+          <span class="cs-tag">GTM Strategy</span>
+          <span class="cs-tag">AIF Launch</span>
+          <span class="cs-tag">Investor Storytelling</span>
+          <span class="cs-tag">Founder Branding</span>
+        </div>
+      </div>
+      <span class="expand-btn">+</span>
+    </button>
+    <div class="cs-body">
+      <div class="context">
+        BetterInvest had proven the model at scale — ₹462+ Cr GTV, 4,889 investors, 0% default. But investor anxiety around production-linked repayment delays was growing. The strategic response: launch a Category II AIF with a structured lock-in period that aligned investor expectations with the natural rhythm of entertainment finance. Stop fighting the timeline problem — design a product built around it. I owned the marketing and communications end to end.
+      </div>
+
+      <p class="s-label">The Problem</p>
+      <ul class="problem-list">
+        <li>A new, regulated financial product going to market in a category most Indian investors had never encountered</li>
+        <li>Had to convert existing investors and attract new HNI and institutional capital simultaneously</li>
+        <li>Investor sentiment still recovering — the AIF launch had to rebuild confidence, not just announce a product</li>
+        <li>Marketing had to feel sophisticated and trustworthy for a SEBI-registered fund — not promotional</li>
+        <li>Founding team needed a credible external voice to support high-value fundraising conversations</li>
+      </ul>
+
+      <p class="s-label">What I Did</p>
+      <div class="actions">
+        <div class="action">
+          <p class="action-head"><span class="action-dot"></span>Built the AIF Investor Narrative</p>
+          <p>Developed the core positioning: entertainment finance is recession-resilient, culturally relevant, backed by pre-sold rights. The lock-in period wasn't a constraint — it was the solution. A structured fund with a defined horizon aligns capital with the natural lifecycle of content rights monetisation.</p>
+        </div>
+        <div class="action">
+          <p class="action-head"><span class="action-dot"></span>Wrote the Investor Pitch Deck</p>
+          <p>Structured the full pitch — ₹462+ Cr GTV, 0% default, 49 producers, buyers including Netflix, Prime Video, Disney+ Hotstar; India M&E market (₹2.3T → ₹3.1T by 2026 per EY); fund terms (₹300 Cr, 16–18% IRR, 4+1+1 years); team credentials. Complex mechanics made intelligible without oversimplifying.</p>
+        </div>
+        <div class="action">
+          <p class="action-head"><span class="action-dot"></span>Designed Launch Campaigns + Founder Personal Branding</p>
+          <p>Built content strategy, messaging architecture, and channel execution for HNI and institutional segments. Simultaneously developed the founders' external narrative — CEO Pradeep Somu and Co-Founder Sethu Rajendran. In regulated, high-trust categories, founder credibility is a material marketing asset.</p>
+        </div>
+        <div class="action">
+          <p class="action-head"><span class="action-dot"></span>Christmas Investor Engagement Campaign</p>
+          <p>Designed a seasonal branded comic during the pre-launch period — to humanise the brand and give investors a reason to stay connected outside transaction moments. In trust-sensitive categories, the brands that show up creatively between deal cycles are the ones investors return to.</p>
+        </div>
+      </div>
+
+      <p class="s-label">Results</p>
+      <div class="results">
+        <div class="r-cell">
+          <span class="r-num">₹300Cr</span>
+          <span class="r-label">Target Fund Size</span>
+          <span class="r-sub">+ ₹200 Cr green shoe option</span>
+        </div>
+        <div class="r-cell">
+          <span class="r-num">5×</span>
+          <span class="r-label">GTV Growth</span>
+          <span class="r-sub">₹100 Cr → ₹500 Cr trajectory</span>
+        </div>
+        <div class="r-cell">
+          <span class="r-num">16–18%</span>
+          <span class="r-label">Target IRR</span>
+          <span class="r-sub">Positioned and pitched to market</span>
+        </div>
+        <div class="r-cell">
+          <span class="r-num">Cat II</span>
+          <span class="r-label">AIF Structure</span>
+          <span class="r-sub">SEBI registration in process</span>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <span class="skill">GTM for Financial Products</span>
+        <span class="skill">Pitch Deck Narrative</span>
+        <span class="skill">Founder Personal Branding</span>
+        <span class="skill">Product Launch</span>
+        <span class="skill">Creative Campaign Thinking</span>
+        <span class="skill">End-to-End Comms Ownership</span>
+      </div>
+      <p class="conf">Pitch materials, campaign assets, and investor documents are confidential. Full walkthrough available upon request. Note: AIF was in SEBI registration process at time of this work.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <h2>"Full project breakdowns shared in a private, recruiter-friendly format."</h2>
+    <p>Available for Product Marketing · Content Strategy · Brand & Storytelling · Investor Communications</p>
+  </div>
+</footer>
+
+<script>
+  function toggle(btn) {
+    const body = btn.nextElementSibling;
+    const icon = btn.querySelector('.expand-btn');
+    const isOpen = body.classList.contains('open');
+    body.classList.toggle('open', !isOpen);
+    if (icon) icon.textContent = isOpen ? '+' : '×';
+  }
+</script>
+</body>
+</html>

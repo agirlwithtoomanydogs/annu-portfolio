@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Annu Singh — Content & Growth Strategist</title>
+<meta name="description" content="Content & Growth Strategist specialising in full-funnel marketing, SEO/AEO, and brand storytelling.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FDFAF5; --cream:#F4EFE6; --dark:#110F0C;
+  --gold:#A8824A;  --gold-l:#C9A96E; --rule:#E3DAD0;
+  --ink:#1A1815;   --ink-60:#5D5750; --ink-30:#A8A09A;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden;cursor:none;}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;}
+
+#cr,#crr{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%);}
+#cr{width:6px;height:6px;background:var(--gold);}
+#crr{width:26px;height:26px;border:1px solid rgba(168,130,74,.45);z-index:9998;transition:all .15s ease;}
+
+nav{
+  position:fixed;inset:0 0 auto 0;z-index:100;height:68px;
+  padding:0 60px;display:flex;align-items:center;justify-content:space-between;
+  background:rgba(253,250,245,.92);backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;transition:border-color .3s;
+}
+nav.up{border-bottom-color:var(--rule);}
+.logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:400;}
+.nav-links{list-style:none;display:flex;align-items:center;gap:40px;}
+.nav-links a{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-60);transition:color .2s;}
+.nav-links a:hover{color:var(--gold);}
+.n-cta{background:var(--ink)!important;color:var(--paper)!important;padding:9px 24px;transition:background .2s!important;}
+.n-cta:hover{background:var(--gold)!important;}
+
+.hero{
+  min-height:100vh;padding:68px 60px 0;
+  display:grid;grid-template-rows:1fr auto;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23f)' opacity='.035'/%3E%3C/svg%3E");
+  opacity:.7;
+}
+.ghost{
+  position:absolute;right:-40px;top:50%;transform:translateY(-50%);
+  font-family:'Playfair Display',serif;font-size:38vw;font-weight:500;
+  color:transparent;-webkit-text-stroke:1px rgba(168,130,74,.055);
+  user-select:none;pointer-events:none;line-height:1;
+}
+.hero-body{
+  display:grid;grid-template-columns:1fr 360px;
+  align-items:center;gap:64px;padding:56px 0;
+}
+.h-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:28px;opacity:0;animation:su .7s ease .1s forwards;
+}
+.h-tag::before{content:'';width:24px;height:1px;background:var(--gold);}
+h1{
+  font-family:'Playfair Display',serif;font-size:clamp(2.6rem,4.2vw,4.2rem);
+  font-weight:400;line-height:1.08;margin-bottom:24px;
+  opacity:0;animation:su .7s ease .22s forwards;
+}
+h1 em{font-style:italic;color:var(--gold);}
+.h-sub{
+  font-size:.96rem;line-height:1.8;color:var(--ink-60);font-weight:300;
+  max-width:440px;margin-bottom:40px;
+  opacity:0;animation:su .7s ease .35s forwards;
+}
+.h-sub strong{color:var(--ink);font-weight:500;}
+.h-ctas{display:flex;align-items:center;gap:20px;opacity:0;animation:su .7s ease .48s forwards;}
+.btn{
+  background:var(--ink);color:var(--paper);
+  padding:14px 34px;font-size:.69rem;letter-spacing:.14em;text-transform:uppercase;
+  display:inline-block;transition:background .25s;
+}
+.btn:hover{background:var(--gold);}
+.btn-ghost{
+  font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-60);display:flex;align-items:center;gap:6px;transition:color .2s;
+}
+.btn-ghost::after{content:'→';transition:transform .2s;}
+.btn-ghost:hover{color:var(--gold);}
+.btn-ghost:hover::after{transform:translateX(4px);}
+
+/* METRIC STACK — redesigned: label left, number right, proper unit sizing */
+.metric-stack{
+  display:flex;flex-direction:column;
+  opacity:0;animation:fi .9s ease .65s forwards;
+  border:1px solid var(--rule);
+}
+.metric{
+  padding:18px 24px;
+  border-bottom:1px solid var(--rule);
+  transition:background .25s;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+}
+.metric:last-child{border-bottom:none;}
+.metric:hover{background:var(--cream);}
+.m-left{flex:1;}
+.m-tag{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;display:block;}
+.m-desc{font-size:.68rem;color:var(--ink-30);font-weight:300;line-height:1.4;}
+.m-num{
+  font-family:'Playfair Display',serif;
+  font-size:1.9rem;font-weight:400;line-height:1;
+  color:var(--ink);white-space:nowrap;text-align:right;flex-shrink:0;
+}
+.m-num .unit{
+  font-family:'Jost',sans-serif;
+  font-size:.65rem;font-weight:500;
+  color:var(--gold);
+  vertical-align:super;
+  margin-left:1px;
+  line-height:1;
+}
+
+.hero-foot{
+  border-top:1px solid var(--rule);padding:20px 0;
+  display:flex;align-items:center;gap:40px;
+  opacity:0;animation:fi .8s ease 1s forwards;
+}
+.hf-label{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-30);white-space:nowrap;}
+.hf-tags{display:flex;flex-wrap:wrap;gap:7px;}
+.hf-tag{
+  font-size:.66rem;color:var(--ink-60);
+  border:1px solid var(--rule);padding:4px 13px;transition:all .2s;
+}
+.hf-tag:hover{border-color:var(--gold);color:var(--gold);}
+
+.sl{
+  display:flex;align-items:center;gap:10px;
+  font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:18px;
+}
+.sl::before{content:'';width:20px;height:1px;background:var(--gold);}
+h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.2vw,3rem);font-weight:400;line-height:1.13;}
+h2 em{font-style:italic;color:var(--gold);}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+.about{background:var(--dark);padding:96px 60px;position:relative;overflow:hidden;}
+.about::after{
+  content:'';position:absolute;top:-200px;right:-150px;width:600px;height:600px;
+  background:radial-gradient(circle,rgba(168,130,74,.09) 0%,transparent 65%);pointer-events:none;
+}
+.about .sl{color:var(--gold-l);}
+.about .sl::before{background:var(--gold-l);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
+.about h2{color:rgba(253,250,245,.9);}
+.about h2 em{color:var(--gold-l);}
+.about-copy{font-size:.93rem;line-height:1.85;color:rgba(253,250,245,.48);font-weight:300;}
+.about-copy p+p{margin-top:18px;}
+.about-copy strong{color:rgba(253,250,245,.82);font-weight:500;}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid rgba(255,255,255,.07);margin-top:64px;}
+.pillar{padding:44px 36px;border-right:1px solid rgba(255,255,255,.07);transition:background .3s;position:relative;overflow:hidden;}
+.pillar:last-child{border-right:none;}
+.pillar:hover{background:rgba(255,255,255,.03);}
+.pillar::after{content:'';position:absolute;bottom:0;left:0;height:2px;width:0;background:var(--gold);transition:width .4s;}
+.pillar:hover::after{width:100%;}
+.p-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:400;color:rgba(253,250,245,.8);margin-bottom:10px;}
+.p-desc{font-size:.78rem;line-height:1.7;color:rgba(253,250,245,.35);font-weight:300;}
+.p-items{margin-top:20px;list-style:none;display:flex;flex-direction:column;gap:6px;}
+.p-items li{font-size:.7rem;color:rgba(253,250,245,.3);font-weight:300;display:flex;align-items:baseline;gap:8px;}
+.p-items li::before{content:'';width:3px;height:3px;background:var(--gold);border-radius:50%;flex-shrink:0;margin-top:5px;}
+
+/* RESULTS — fixed unit sizing */
+.results{padding:96px 60px;background:var(--cream);}
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--rule);margin-top:52px;}
+.res{padding:40px 36px;border-right:1px solid var(--rule);transition:background .25s;position:relative;overflow:hidden;}
+.res:nth-child(3n){border-right:none;}
+.res:nth-child(n+4){border-top:1px solid var(--rule);}
+.res:hover{background:var(--paper);}
+.res::after{content:'';position:absolute;bottom:0;left:0;height:2px;width:0;background:var(--gold);transition:width .4s;}
+.res:hover::after{width:100%;}
+.r-tag{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.r-num{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:400;line-height:1;color:var(--ink);margin-bottom:8px;}
+.r-num .unit{font-family:'Jost',sans-serif;font-size:1rem;font-weight:400;color:var(--gold);vertical-align:super;}
+.r-label{font-size:.8rem;color:var(--ink-60);font-weight:300;line-height:1.6;}
+
+/* CASE STUDIES PREVIEW */
+.casestudies{padding:96px 60px;background:var(--paper);}
+.cs-intro{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:56px;}
+.cs-intro-right{font-size:.88rem;line-height:1.85;color:var(--ink-60);font-weight:300;}
+.cs-intro-right a{
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--gold);font-size:.69rem;letter-spacing:.12em;
+  text-transform:uppercase;margin-top:20px;transition:gap .2s;
+}
+.cs-intro-right a::after{content:'→';transition:transform .2s;}
+.cs-intro-right a:hover::after{transform:translateX(4px);}
+.cs-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--rule);}
+.cs-card{
+  padding:40px 36px;border-right:1px solid var(--rule);
+  transition:background .25s;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+}
+.cs-card:last-child{border-right:none;}
+.cs-card:hover{background:var(--cream);}
+.cs-card::after{content:'';position:absolute;bottom:0;left:0;height:2px;width:0;background:var(--gold);transition:width .4s;}
+.cs-card:hover::after{width:100%;}
+.cs-num{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-30);margin-bottom:16px;}
+.cs-card-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:400;line-height:1.35;color:var(--ink);margin-bottom:10px;flex:1;}
+.cs-co{font-size:.68rem;color:var(--ink-30);font-weight:300;margin-bottom:20px;}
+.cs-stat{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:400;line-height:1;color:var(--gold);margin-bottom:5px;}
+.cs-stat .unit{font-family:'Jost',sans-serif;font-size:.65rem;font-weight:500;color:var(--gold-l);vertical-align:super;}
+.cs-stat-label{font-size:.68rem;color:var(--ink-30);font-weight:300;}
+.cs-link{
+  display:inline-flex;align-items:center;gap:6px;margin-top:24px;
+  font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-60);border-bottom:1px solid var(--rule);
+  padding-bottom:3px;transition:all .2s;width:fit-content;
+}
+.cs-link::after{content:'→';transition:transform .2s;}
+.cs-card:hover .cs-link{color:var(--gold);border-color:var(--gold);}
+.cs-card:hover .cs-link::after{transform:translateX(4px);}
+.star-badge{
+  display:inline-block;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);border:1px solid rgba(168,130,74,.3);
+  padding:3px 10px;border-radius:2px;margin-bottom:10px;width:fit-content;
+}
+
+.contact{padding:120px 60px;background:var(--dark);text-align:center;position:relative;overflow:hidden;}
+.contact::before{
+  content:'';position:absolute;bottom:-250px;left:50%;transform:translateX(-50%);
+  width:800px;height:800px;
+  background:radial-gradient(circle,rgba(168,130,74,.09) 0%,transparent 60%);pointer-events:none;
+}
+.contact .sl{justify-content:center;color:var(--gold-l);}
+.contact .sl::before{display:none;}
+.contact h2{color:rgba(253,250,245,.9);font-size:clamp(2.4rem,4.5vw,4.2rem);max-width:600px;margin:0 auto 16px;}
+.contact h2 em{color:var(--gold-l);}
+.contact-sub{font-size:.9rem;color:rgba(253,250,245,.4);font-weight:300;margin-bottom:44px;line-height:1.7;}
+.contact-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.btn-inv{border:1px solid rgba(253,250,245,.2);color:rgba(253,250,245,.65);padding:13px 30px;font-size:.69rem;letter-spacing:.13em;text-transform:uppercase;transition:all .25s;}
+.btn-inv:hover{border-color:var(--gold);color:var(--gold-l);}
+
+footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.05);padding:28px 60px;display:flex;align-items:center;justify-content:space-between;font-size:.7rem;color:rgba(253,250,245,.25);letter-spacing:.04em;}
+.f-logo{font-family:'Playfair Display',serif;font-size:.95rem;color:rgba(253,250,245,.6);}
+
+.sticky{position:fixed;bottom:32px;right:32px;z-index:100;background:var(--gold);color:var(--dark);padding:12px 24px;font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;box-shadow:0 6px 32px rgba(168,130,74,.28);transition:background .2s;opacity:0;animation:fi .6s ease 1.7s forwards;}
+.sticky:hover{background:var(--paper);}
+
+@keyframes su{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+@keyframes fi{from{opacity:0;}to{opacity:1;}}
+
+@media(max-width:900px){
+  nav{padding:0 20px;}
+  .nav-links li:not(:last-child){display:none;}
+  .hero,.about,.results,.casestudies,.contact{padding-left:20px;padding-right:20px;}
+  .hero-body{grid-template-columns:1fr;}
+  .metric-stack{display:none;}
+  .about-grid{grid-template-columns:1fr;gap:36px;}
+  .pillars{grid-template-columns:1fr;}
+  .pillar{border-right:none;border-bottom:1px solid rgba(255,255,255,.07);}
+  .pillar:last-child{border-bottom:none;}
+  .results-grid{grid-template-columns:1fr 1fr;}
+  .res:nth-child(2n){border-right:none;}
+  .res:nth-child(3n){border-right:1px solid var(--rule);}
+  .cs-cards{grid-template-columns:1fr;}
+  .cs-card{border-right:none;border-bottom:1px solid var(--rule);}
+  .cs-card:last-child{border-bottom:none;}
+  .cs-intro{grid-template-columns:1fr;}
+  footer{flex-direction:column;gap:10px;text-align:center;}
+}
+@media(max-width:560px){
+  .results-grid{grid-template-columns:1fr;}
+  .res{border-right:none!important;}
+}
+</style>
+</head>
+<body>
+
+<div id="cr"></div>
+<div id="crr"></div>
+
+<nav id="nav">
+  <a href="#top" class="logo">Annu Singh</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="portfolio.html">Case Studies</a></li>
+    <li><a href="https://calendly.com/annu-singh19397/new-meeting" target="_blank" class="n-cta">Book a Call</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="top">
+  <div class="ghost" aria-hidden="true">7</div>
+  <div class="hero-body">
+    <div>
+      <div class="h-tag">Content &amp; Growth Strategist · 7+ Years</div>
+      <h1>Where <em>narrative</em><br>meets numbers.</h1>
+      <p class="h-sub">I build content systems, full-funnel campaigns, and organic growth engines that turn <strong>brand stories into measurable revenue.</strong></p>
+      <div class="h-ctas">
+        <a href="https://calendly.com/annu-singh19397/new-meeting" target="_blank" class="btn">Book a Call</a>
+        <a href="portfolio.html" class="btn-ghost">See My Work</a>
+      </div>
+    </div>
+    <div class="metric-stack">
+      <div class="metric">
+        <div class="m-left">
+          <span class="m-tag">Organic Retention</span>
+          <span class="m-desc">Revenue in 2 months — zero paid media</span>
+        </div>
+        <div class="m-num">₹8.3<span class="unit">Cr</span></div>
+      </div>
+      <div class="metric">
+        <div class="m-left">
+          <span class="m-tag">GTV Scaled</span>
+          <span class="m-desc">₹100 Cr to ₹500 Cr</span>
+        </div>
+        <div class="m-num">5<span class="unit">×</span></div>
+      </div>
+      <div class="metric">
+        <div class="m-left">
+          <span class="m-tag">Email · 96+ Campaigns</span>
+          <span class="m-desc">Avg open rate — 37% reply rate</span>
+        </div>
+        <div class="m-num">53<span class="unit">%</span></div>
+      </div>
+      <div class="metric">
+        <div class="m-left">
+          <span class="m-tag">Client Onboarding</span>
+          <span class="m-desc">Lift through audience-led content</span>
+        </div>
+        <div class="m-num">45<span class="unit">%</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-foot">
+    <span class="hf-label">Worked across</span>
+    <div class="hf-tags">
+      <span class="hf-tag">Fintech</span>
+      <span class="hf-tag">Web3 &amp; Crypto</span>
+      <span class="hf-tag">IoT</span>
+      <span class="hf-tag">Real Estate</span>
+      <span class="hf-tag">Global Agencies</span>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-grid reveal">
+    <div>
+      <div class="sl">About</div>
+      <h2>Strategy.<br><em>Story.</em><br>Systems.</h2>
+    </div>
+    <div class="about-copy">
+      <p>I'm a Content &amp; Growth Strategist who turns complex products into compelling narratives — and compelling narratives into compounding revenue.</p>
+      <p>Across fintech, Web3, IoT, and global agencies, I've built the <strong>content architectures, funnel logic, and lifecycle messaging</strong> that make brands grow whether or not they go viral.</p>
+    </div>
+  </div>
+  <div class="pillars reveal">
+    <div class="pillar">
+      <div class="p-name">Narrative &amp; Content</div>
+      <div class="p-desc">Messaging frameworks, editorial systems, and brand voice across every touchpoint.</div>
+      <ul class="p-items">
+        <li>Brand positioning &amp; messaging</li>
+        <li>Website &amp; landing page copy</li>
+        <li>Blogs, ebooks, case studies</li>
+        <li>Video scripts &amp; webinar content</li>
+        <li>Newsletters &amp; investor comms</li>
+        <li>Pitch decks &amp; collateral</li>
+        <li>Corporate comics &amp; creative formats</li>
+      </ul>
+    </div>
+    <div class="pillar">
+      <div class="p-name">Full-Funnel Growth</div>
+      <div class="p-desc">End-to-end campaigns mapped to revenue — from awareness through retention.</div>
+      <ul class="p-items">
+        <li>TOFU / MOFU / BOFU strategy</li>
+        <li>Email marketing &amp; sequences</li>
+        <li>Paid ad &amp; performance copy</li>
+        <li>Retention &amp; lifecycle campaigns</li>
+        <li>A/B testing &amp; CRO</li>
+        <li>Lead generation strategy</li>
+        <li>Launch &amp; initiative campaigns</li>
+      </ul>
+    </div>
+    <div class="pillar">
+      <div class="p-name">SEO, AEO &amp; Organic</div>
+      <div class="p-desc">Search visibility and AI-era discoverability that compounds over time.</div>
+      <ul class="p-items">
+        <li>SEO strategy &amp; content clusters</li>
+        <li>AEO for AI-first search</li>
+        <li>Keyword &amp; competitor research</li>
+        <li>UX writing &amp; user flows</li>
+        <li>LinkedIn &amp; organic social growth</li>
+        <li>Founder thought leadership</li>
+        <li>GA4 &amp; GSC analysis</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="results" id="results">
+  <div class="reveal">
+    <div class="sl">Selected Results</div>
+    <h2>Numbers that<br><em>speak clearly.</em></h2>
+  </div>
+  <div class="results-grid reveal">
+    <div class="res">
+      <div class="r-tag">Fintech · Retention</div>
+      <div class="r-num">₹8.3<span class="unit">Cr</span></div>
+      <div class="r-label">Organic campaign — zero paid media — 2 months.</div>
+    </div>
+    <div class="res">
+      <div class="r-tag">Fintech · Scale</div>
+      <div class="r-num">5<span class="unit">×</span></div>
+      <div class="r-label">GTV growth — ₹100 Cr to ₹500 Cr.</div>
+    </div>
+    <div class="res">
+      <div class="r-tag">Email Marketing</div>
+      <div class="r-num">53<span class="unit">%</span></div>
+      <div class="r-label">Avg open rate across 96+ campaigns — 37% reply rate.</div>
+    </div>
+    <div class="res">
+      <div class="r-tag">Web3 / IoT · Traffic</div>
+      <div class="r-num">50<span class="unit">%</span></div>
+      <div class="r-label">Website traffic lift — 20% conversion increase.</div>
+    </div>
+    <div class="res">
+      <div class="r-tag">Crypto · Onboarding</div>
+      <div class="r-num">45<span class="unit">%</span></div>
+      <div class="r-label">Client onboarding increase via audience-led content.</div>
+    </div>
+    <div class="res">
+      <div class="r-tag">Social · LinkedIn</div>
+      <div class="r-num">40<span class="unit">%</span></div>
+      <div class="r-label">Follower growth — 35% Twitter/X engagement lift.</div>
+    </div>
+  </div>
+</section>
+
+<section class="casestudies" id="casestudies">
+  <div class="cs-intro reveal">
+    <div>
+      <div class="sl">Case Studies</div>
+      <h2>Three projects.<br><em>Real stakes.</em></h2>
+    </div>
+    <div class="cs-intro-right">
+      <p>Behind every number is a problem that needed solving and a decision that needed making. These are the full stories — the context, the thinking, and the result.</p>
+      <a href="portfolio.html">View all case studies</a>
+    </div>
+  </div>
+  <div class="cs-cards reveal">
+    <div class="cs-card">
+      <div class="cs-num">Case Study · 01</div>
+      <h3 class="cs-card-title">30 B2B Case Studies in 30 Days for a Crypto Agency</h3>
+      <div class="cs-co">Blockwiz · Web3 Marketing Agency</div>
+      <div class="cs-stat">45<span class="unit">%</span></div>
+      <div class="cs-stat-label">Client onboarding lift</div>
+      <a href="portfolio.html#cs1" class="cs-link">Read case study</a>
+    </div>
+    <div class="cs-card">
+      <div class="cs-num">Case Study · 02</div>
+      <div class="star-badge">★ Star Project</div>
+      <h3 class="cs-card-title">Organic Retention Campaign That Drove ₹8.3 Cr in Fresh Investment</h3>
+      <div class="cs-co">BetterInvest · Fintech</div>
+      <div class="cs-stat">₹8.3<span class="unit">Cr</span></div>
+      <div class="cs-stat-label">Zero paid media — 2 months</div>
+      <a href="portfolio.html#cs2" class="cs-link">Read case study</a>
+    </div>
+    <div class="cs-card">
+      <div class="cs-num">Case Study · 03</div>
+      <h3 class="cs-card-title">Launching India's Media &amp; Entertainment AIF — Narrative &amp; GTM</h3>
+      <div class="cs-co">BetterInvest · AIF Category II</div>
+      <div class="cs-stat">₹300<span class="unit">Cr</span></div>
+      <div class="cs-stat-label">Target fund size — pitched to market</div>
+      <a href="portfolio.html#cs3" class="cs-link">Read case study</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="sl">Let's Talk</div>
+  <h2>Where would you<br>like to <em>grow next?</em></h2>
+  <p class="contact-sub">Open to senior roles and select consulting engagements.</p>
+  <div class="contact-links">
+    <a href="https://calendly.com/annu-singh19397/new-meeting" target="_blank" class="btn" style="background:var(--gold);color:var(--dark);">Book a Call</a>
+    <a href="https://www.linkedin.com/in/annusinghmarketingspecialist007" target="_blank" class="btn-inv">LinkedIn</a>
+  </div>
+</section>
+
+<footer>
+  <span class="f-logo">Annu Singh</span>
+  <span>Content &amp; Growth Strategist · India · Available Globally</span>
+  <span>© 2026</span>
+</footer>
+
+<a href="https://calendly.com/annu-singh19397/new-meeting" target="_blank" class="sticky">Book a Call</a>
+
+<script>
+const cr=document.getElementById('cr'),crr=document.getElementById('crr');
+document.addEventListener('mousemove',e=>{
+  cr.style.left=e.clientX+'px'; cr.style.top=e.clientY+'px';
+  setTimeout(()=>{ crr.style.left=e.clientX+'px'; crr.style.top=e.clientY+'px'; },65);
+});
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('up',scrollY>8);
+});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');}),{threshold:.07});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
