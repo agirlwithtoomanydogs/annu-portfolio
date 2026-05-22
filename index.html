@@ -4,512 +4,1086 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Annu Singh — Content & Growth Strategist</title>
-<meta name="description" content="Content & Growth Strategist specialising in full-funnel marketing, SEO/AEO, and brand storytelling.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
-:root{
-  --paper:#FDFAF5; --cream:#F4EFE6; --dark:#110F0C;
-  --gold:#A8824A;  --gold-l:#C9A96E; --rule:#E3DAD0;
-  --ink:#1A1815;   --ink-60:#5D5750; --ink-30:#A8A09A;
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:'Jost',sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden;cursor:none;}
-a{text-decoration:none;color:inherit;}
-img{display:block;max-width:100%;}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-#cr,#crr{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%);}
-#cr{width:6px;height:6px;background:var(--gold);}
-#crr{width:26px;height:26px;border:1px solid rgba(168,130,74,.45);z-index:9998;transition:all .15s ease;}
+  :root {
+    --cream: #F5F0E8;
+    --ink: #1A1510;
+    --rust: #C4561A;
+    --gold: #C9A84C;
+    --sage: #7A8C6E;
+    --warm-grey: #8A8278;
+    --paper: #EDE8DC;
+    --dark-paper: #2A2420;
+  }
 
-nav{
-  position:fixed;inset:0 0 auto 0;z-index:100;height:68px;
-  padding:0 60px;display:flex;align-items:center;justify-content:space-between;
-  background:rgba(253,250,245,.92);backdrop-filter:blur(14px);
-  border-bottom:1px solid transparent;transition:border-color .3s;
-}
-nav.up{border-bottom-color:var(--rule);}
-.logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:400;}
-.nav-links{list-style:none;display:flex;align-items:center;gap:40px;}
-.nav-links a{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-60);transition:color .2s;}
-.nav-links a:hover{color:var(--gold);}
-.n-cta{background:var(--ink)!important;color:var(--paper)!important;padding:9px 24px;transition:background .2s!important;}
-.n-cta:hover{background:var(--gold)!important;}
+  html { scroll-behavior: smooth; }
 
-.hero{
-  min-height:100vh;padding:68px 60px 0;
-  display:grid;grid-template-rows:1fr auto;
-  position:relative;overflow:hidden;
-}
-.hero::before{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23f)' opacity='.035'/%3E%3C/svg%3E");
-  opacity:.7;
-}
-.ghost{
-  position:absolute;right:-40px;top:50%;transform:translateY(-50%);
-  font-family:'Playfair Display',serif;font-size:38vw;font-weight:500;
-  color:transparent;-webkit-text-stroke:1px rgba(168,130,74,.055);
-  user-select:none;pointer-events:none;line-height:1;
-}
-.hero-body{
-  display:grid;grid-template-columns:1fr 360px;
-  align-items:center;gap:64px;padding:56px 0;
-}
-.h-tag{
-  display:inline-flex;align-items:center;gap:10px;
-  font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
-  margin-bottom:28px;opacity:0;animation:su .7s ease .1s forwards;
-}
-.h-tag::before{content:'';width:24px;height:1px;background:var(--gold);}
-h1{
-  font-family:'Playfair Display',serif;font-size:clamp(2.6rem,4.2vw,4.2rem);
-  font-weight:400;line-height:1.08;margin-bottom:24px;
-  opacity:0;animation:su .7s ease .22s forwards;
-}
-h1 em{font-style:italic;color:var(--gold);}
-.h-sub{
-  font-size:.96rem;line-height:1.8;color:var(--ink-60);font-weight:300;
-  max-width:440px;margin-bottom:40px;
-  opacity:0;animation:su .7s ease .35s forwards;
-}
-.h-sub strong{color:var(--ink);font-weight:500;}
-.h-ctas{display:flex;align-items:center;gap:20px;opacity:0;animation:su .7s ease .48s forwards;}
-.btn{
-  background:var(--ink);color:var(--paper);
-  padding:14px 34px;font-size:.69rem;letter-spacing:.14em;text-transform:uppercase;
-  display:inline-block;transition:background .25s;
-}
-.btn:hover{background:var(--gold);}
-.btn-ghost{
-  font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--ink-60);display:flex;align-items:center;gap:6px;transition:color .2s;
-}
-.btn-ghost::after{content:'→';transition:transform .2s;}
-.btn-ghost:hover{color:var(--gold);}
-.btn-ghost:hover::after{transform:translateX(4px);}
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', serif;
+    cursor: none;
+    overflow-x: hidden;
+  }
 
-/* METRIC STACK — redesigned: label left, number right, proper unit sizing */
-.metric-stack{
-  display:flex;flex-direction:column;
-  opacity:0;animation:fi .9s ease .65s forwards;
-  border:1px solid var(--rule);
-}
-.metric{
-  padding:18px 24px;
-  border-bottom:1px solid var(--rule);
-  transition:background .25s;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:16px;
-}
-.metric:last-child{border-bottom:none;}
-.metric:hover{background:var(--cream);}
-.m-left{flex:1;}
-.m-tag{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;display:block;}
-.m-desc{font-size:.68rem;color:var(--ink-30);font-weight:300;line-height:1.4;}
-.m-num{
-  font-family:'Playfair Display',serif;
-  font-size:1.9rem;font-weight:400;line-height:1;
-  color:var(--ink);white-space:nowrap;text-align:right;flex-shrink:0;
-}
-.m-num .unit{
-  font-family:'Jost',sans-serif;
-  font-size:.65rem;font-weight:500;
-  color:var(--gold);
-  vertical-align:super;
-  margin-left:1px;
-  line-height:1;
-}
+  /* Custom Cursor */
+  .cursor {
+    position: fixed;
+    top: 0; left: 0;
+    width: 12px; height: 12px;
+    background: var(--rust);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.15s ease, opacity 0.2s;
+    transform: translate(-50%, -50%);
+  }
+  .cursor-ring {
+    position: fixed;
+    top: 0; left: 0;
+    width: 40px; height: 40px;
+    border: 1px solid var(--rust);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.4s ease, width 0.3s, height 0.3s, opacity 0.3s;
+    opacity: 0.5;
+  }
+  .cursor.expanded { transform: translate(-50%, -50%) scale(2.5); background: transparent; border: 1px solid var(--rust); }
 
-.hero-foot{
-  border-top:1px solid var(--rule);padding:20px 0;
-  display:flex;align-items:center;gap:40px;
-  opacity:0;animation:fi .8s ease 1s forwards;
-}
-.hf-label{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-30);white-space:nowrap;}
-.hf-tags{display:flex;flex-wrap:wrap;gap:7px;}
-.hf-tag{
-  font-size:.66rem;color:var(--ink-60);
-  border:1px solid var(--rule);padding:4px 13px;transition:all .2s;
-}
-.hf-tag:hover{border-color:var(--gold);color:var(--gold);}
+  /* Noise Overlay */
+  .noise {
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9990;
+    opacity: 0.6;
+  }
 
-.sl{
-  display:flex;align-items:center;gap:10px;
-  font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
-  margin-bottom:18px;
-}
-.sl::before{content:'';width:20px;height:1px;background:var(--gold);}
-h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.2vw,3rem);font-weight:400;line-height:1.13;}
-h2 em{font-style:italic;color:var(--gold);}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
-.reveal.in{opacity:1;transform:none;}
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 60px;
+    mix-blend-mode: multiply;
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    opacity: 0.65;
+    transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; }
 
-.about{background:var(--dark);padding:96px 60px;position:relative;overflow:hidden;}
-.about::after{
-  content:'';position:absolute;top:-200px;right:-150px;width:600px;height:600px;
-  background:radial-gradient(circle,rgba(168,130,74,.09) 0%,transparent 65%);pointer-events:none;
-}
-.about .sl{color:var(--gold-l);}
-.about .sl::before{background:var(--gold-l);}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
-.about h2{color:rgba(253,250,245,.9);}
-.about h2 em{color:var(--gold-l);}
-.about-copy{font-size:.93rem;line-height:1.85;color:rgba(253,250,245,.48);font-weight:300;}
-.about-copy p+p{margin-top:18px;}
-.about-copy strong{color:rgba(253,250,245,.82);font-weight:500;}
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid rgba(255,255,255,.07);margin-top:64px;}
-.pillar{padding:44px 36px;border-right:1px solid rgba(255,255,255,.07);transition:background .3s;position:relative;overflow:hidden;}
-.pillar:last-child{border-right:none;}
-.pillar:hover{background:rgba(255,255,255,.03);}
-.pillar::after{content:'';position:absolute;bottom:0;left:0;height:2px;width:0;background:var(--gold);transition:width .4s;}
-.pillar:hover::after{width:100%;}
-.p-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:400;color:rgba(253,250,245,.8);margin-bottom:10px;}
-.p-desc{font-size:.78rem;line-height:1.7;color:rgba(253,250,245,.35);font-weight:300;}
-.p-items{margin-top:20px;list-style:none;display:flex;flex-direction:column;gap:6px;}
-.p-items li{font-size:.7rem;color:rgba(253,250,245,.3);font-weight:300;display:flex;align-items:baseline;gap:8px;}
-.p-items li::before{content:'';width:3px;height:3px;background:var(--gold);border-radius:50%;flex-shrink:0;margin-top:5px;}
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 140px 60px 80px;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.3s forwards;
+  }
+  .hero-title {
+    font-size: clamp(64px, 7vw, 110px);
+    font-weight: 300;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    margin-bottom: 36px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.5s forwards;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--rust);
+  }
+  .hero-sub {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--warm-grey);
+    max-width: 420px;
+    margin-bottom: 52px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.7s forwards;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.9s forwards;
+  }
+  .btn-primary {
+    display: inline-block;
+    padding: 16px 36px;
+    background: var(--ink);
+    color: var(--cream);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--rust); transform: translateY(-2px); }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    opacity: 0.6;
+    transition: opacity 0.2s, gap 0.2s;
+  }
+  .btn-ghost::after { content: '→'; transition: transform 0.2s; }
+  .btn-ghost:hover { opacity: 1; gap: 16px; }
 
-/* RESULTS — fixed unit sizing */
-.results{padding:96px 60px;background:var(--cream);}
-.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--rule);margin-top:52px;}
-.res{padding:40px 36px;border-right:1px solid var(--rule);transition:background .25s;position:relative;overflow:hidden;}
-.res:nth-child(3n){border-right:none;}
-.res:nth-child(n+4){border-top:1px solid var(--rule);}
-.res:hover{background:var(--paper);}
-.res::after{content:'';position:absolute;bottom:0;left:0;height:2px;width:0;background:var(--gold);transition:width .4s;}
-.res:hover::after{width:100%;}
-.r-tag{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
-.r-num{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:400;line-height:1;color:var(--ink);margin-bottom:8px;}
-.r-num .unit{font-family:'Jost',sans-serif;font-size:1rem;font-weight:400;color:var(--gold);vertical-align:super;}
-.r-label{font-size:.8rem;color:var(--ink-60);font-weight:300;line-height:1.6;}
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-graphic {
+    position: absolute;
+    inset: 0;
+    background: var(--dark-paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .hero-rings {
+    position: relative;
+    width: 500px;
+    height: 500px;
+  }
+  .ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.15);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation: spinRing linear infinite;
+  }
+  .ring:nth-child(1) { width: 140px; height: 140px; border-color: rgba(196,86,26,0.5); animation-duration: 12s; }
+  .ring:nth-child(2) { width: 240px; height: 240px; border-color: rgba(201,168,76,0.3); animation-duration: 20s; animation-direction: reverse; }
+  .ring:nth-child(3) { width: 340px; height: 340px; border-color: rgba(122,140,110,0.2); animation-duration: 30s; }
+  .ring:nth-child(4) { width: 440px; height: 440px; border-color: rgba(201,168,76,0.1); animation-duration: 45s; animation-direction: reverse; }
+  .ring-dot {
+    position: absolute;
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    top: -3px; left: 50%;
+    transform: translateX(-50%);
+  }
+  .ring-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--cream);
+  }
+  .ring-center-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .ring-center-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.5);
+    margin-top: 8px;
+  }
 
-/* CASE STUDIES PREVIEW */
-.casestudies{padding:96px 60px;background:var(--paper);}
-.cs-intro{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:56px;}
-.cs-intro-right{font-size:.88rem;line-height:1.85;color:var(--ink-60);font-weight:300;}
-.cs-intro-right a{
-  display:inline-flex;align-items:center;gap:6px;
-  color:var(--gold);font-size:.69rem;letter-spacing:.12em;
-  text-transform:uppercase;margin-top:20px;transition:gap .2s;
-}
-.cs-intro-right a::after{content:'→';transition:transform .2s;}
-.cs-intro-right a:hover::after{transform:translateX(4px);}
-.cs-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--rule);}
-.cs-card{
-  padding:40px 36px;border-right:1px solid var(--rule);
-  transition:background .25s;position:relative;overflow:hidden;
-  display:flex;flex-direction:column;
-}
-.cs-card:last-child{border-right:none;}
-.cs-card:hover{background:var(--cream);}
-.cs-card::after{content:'';position:absolute;bottom:0;left:0;height:2px;width:0;background:var(--gold);transition:width .4s;}
-.cs-card:hover::after{width:100%;}
-.cs-num{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-30);margin-bottom:16px;}
-.cs-card-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:400;line-height:1.35;color:var(--ink);margin-bottom:10px;flex:1;}
-.cs-co{font-size:.68rem;color:var(--ink-30);font-weight:300;margin-bottom:20px;}
-.cs-stat{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:400;line-height:1;color:var(--gold);margin-bottom:5px;}
-.cs-stat .unit{font-family:'Jost',sans-serif;font-size:.65rem;font-weight:500;color:var(--gold-l);vertical-align:super;}
-.cs-stat-label{font-size:.68rem;color:var(--ink-30);font-weight:300;}
-.cs-link{
-  display:inline-flex;align-items:center;gap:6px;margin-top:24px;
-  font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--ink-60);border-bottom:1px solid var(--rule);
-  padding-bottom:3px;transition:all .2s;width:fit-content;
-}
-.cs-link::after{content:'→';transition:transform .2s;}
-.cs-card:hover .cs-link{color:var(--gold);border-color:var(--gold);}
-.cs-card:hover .cs-link::after{transform:translateX(4px);}
-.star-badge{
-  display:inline-block;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--gold);border:1px solid rgba(168,130,74,.3);
-  padding:3px 10px;border-radius:2px;margin-bottom:10px;width:fit-content;
-}
+  /* TICKER */
+  .ticker-bar {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 14px 0;
+    overflow: hidden;
+    position: relative;
+  }
+  .ticker-track {
+    display: flex;
+    gap: 0;
+    animation: ticker 22s linear infinite;
+    white-space: nowrap;
+  }
+  .ticker-item {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0 48px;
+    opacity: 0.7;
+  }
+  .ticker-item span {
+    color: var(--rust);
+    margin: 0 12px;
+  }
 
-.contact{padding:120px 60px;background:var(--dark);text-align:center;position:relative;overflow:hidden;}
-.contact::before{
-  content:'';position:absolute;bottom:-250px;left:50%;transform:translateX(-50%);
-  width:800px;height:800px;
-  background:radial-gradient(circle,rgba(168,130,74,.09) 0%,transparent 60%);pointer-events:none;
-}
-.contact .sl{justify-content:center;color:var(--gold-l);}
-.contact .sl::before{display:none;}
-.contact h2{color:rgba(253,250,245,.9);font-size:clamp(2.4rem,4.5vw,4.2rem);max-width:600px;margin:0 auto 16px;}
-.contact h2 em{color:var(--gold-l);}
-.contact-sub{font-size:.9rem;color:rgba(253,250,245,.4);font-weight:300;margin-bottom:44px;line-height:1.7;}
-.contact-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
-.btn-inv{border:1px solid rgba(253,250,245,.2);color:rgba(253,250,245,.65);padding:13px 30px;font-size:.69rem;letter-spacing:.13em;text-transform:uppercase;transition:all .25s;}
-.btn-inv:hover{border-color:var(--gold);color:var(--gold-l);}
+  /* STATS */
+  #results {
+    padding: 120px 60px;
+    background: var(--paper);
+    position: relative;
+  }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-size: clamp(42px, 5vw, 72px);
+    font-weight: 300;
+    line-height: 1.05;
+    margin-bottom: 80px;
+  }
+  .section-title em { font-style: italic; color: var(--rust); }
 
-footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.05);padding:28px 60px;display:flex;align-items:center;justify-content:space-between;font-size:.7rem;color:rgba(253,250,245,.25);letter-spacing:.04em;}
-.f-logo{font-family:'Playfair Display',serif;font-size:.95rem;color:rgba(253,250,245,.6);}
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .stat-card {
+    background: var(--cream);
+    padding: 52px 44px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.4s;
+    cursor: default;
+  }
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--rust);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+    transform-origin: left;
+  }
+  .stat-card:hover { background: var(--ink); }
+  .stat-card:hover .stat-num { color: var(--gold); }
+  .stat-card:hover .stat-label, .stat-card:hover .stat-context { color: rgba(245,240,232,0.6); }
+  .stat-card:hover .stat-tag { color: rgba(245,240,232,0.3); }
+  .stat-card:hover::before { transform: scaleX(1); }
+  .stat-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--warm-grey);
+    margin-bottom: 24px;
+    transition: color 0.4s;
+  }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 5vw, 80px);
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 16px;
+    transition: color 0.4s;
+  }
+  .stat-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 10px;
+    transition: color 0.4s;
+  }
+  .stat-context {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--warm-grey);
+    line-height: 1.6;
+    transition: color 0.4s;
+  }
 
-.sticky{position:fixed;bottom:32px;right:32px;z-index:100;background:var(--gold);color:var(--dark);padding:12px 24px;font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;box-shadow:0 6px 32px rgba(168,130,74,.28);transition:background .2s;opacity:0;animation:fi .6s ease 1.7s forwards;}
-.sticky:hover{background:var(--paper);}
+  /* ABOUT */
+  #about {
+    padding: 140px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: start;
+  }
+  .about-left {}
+  .about-right {}
+  .about-intro {
+    font-size: clamp(22px, 2.5vw, 32px);
+    font-weight: 300;
+    line-height: 1.55;
+    margin-bottom: 40px;
+  }
+  .about-intro strong { font-weight: 600; }
+  .about-body {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--warm-grey);
+    margin-bottom: 50px;
+  }
 
-@keyframes su{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
-@keyframes fi{from{opacity:0;}to{opacity:1;}}
+  .skills-accordion { border-top: 1px solid rgba(26,21,16,0.1); }
+  .skill-group {
+    border-bottom: 1px solid rgba(26,21,16,0.1);
+    overflow: hidden;
+  }
+  .skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .skill-header:hover { color: var(--rust); }
+  .skill-header-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .skill-toggle {
+    font-size: 22px;
+    font-weight: 300;
+    transition: transform 0.3s;
+    color: var(--rust);
+  }
+  .skill-group.open .skill-toggle { transform: rotate(45deg); }
+  .skill-items {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .skill-group.open .skill-items { max-height: 400px; }
+  .skill-list {
+    padding: 4px 0 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .skill-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--warm-grey);
+  }
+  .skill-item::before {
+    content: '';
+    width: 4px; height: 4px;
+    background: var(--rust);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
 
-@media(max-width:900px){
-  nav{padding:0 20px;}
-  .nav-links li:not(:last-child){display:none;}
-  .hero,.about,.results,.casestudies,.contact{padding-left:20px;padding-right:20px;}
-  .hero-body{grid-template-columns:1fr;}
-  .metric-stack{display:none;}
-  .about-grid{grid-template-columns:1fr;gap:36px;}
-  .pillars{grid-template-columns:1fr;}
-  .pillar{border-right:none;border-bottom:1px solid rgba(255,255,255,.07);}
-  .pillar:last-child{border-bottom:none;}
-  .results-grid{grid-template-columns:1fr 1fr;}
-  .res:nth-child(2n){border-right:none;}
-  .res:nth-child(3n){border-right:1px solid var(--rule);}
-  .cs-cards{grid-template-columns:1fr;}
-  .cs-card{border-right:none;border-bottom:1px solid var(--rule);}
-  .cs-card:last-child{border-bottom:none;}
-  .cs-intro{grid-template-columns:1fr;}
-  footer{flex-direction:column;gap:10px;text-align:center;}
-}
-@media(max-width:560px){
-  .results-grid{grid-template-columns:1fr;}
-  .res{border-right:none!important;}
-}
+  /* INDUSTRIES */
+  .industries-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 40px;
+  }
+  .industry-tag {
+    padding: 10px 20px;
+    border: 1px solid rgba(26,21,16,0.15);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--warm-grey);
+    transition: all 0.2s;
+    cursor: default;
+  }
+  .industry-tag:hover {
+    border-color: var(--rust);
+    color: var(--rust);
+    background: rgba(196,86,26,0.04);
+  }
+
+  /* CASE STUDIES */
+  #casestudies {
+    padding: 120px 60px;
+    background: var(--dark-paper);
+    color: var(--cream);
+  }
+  #casestudies .section-label { color: var(--gold); }
+  #casestudies .section-title em { color: var(--gold); }
+  #casestudies .section-title { color: var(--cream); }
+
+  .cs-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .cs-card {
+    background: rgba(245,240,232,0.04);
+    border: 1px solid rgba(245,240,232,0.06);
+    padding: 0 60px;
+    max-height: 100px;
+    overflow: hidden;
+    transition: max-height 0.6s ease, background 0.3s, padding 0.4s;
+    cursor: pointer;
+  }
+  .cs-card.open {
+    max-height: 600px;
+    background: rgba(245,240,232,0.07);
+    padding: 0 60px;
+  }
+  .cs-header {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 36px 0;
+    border-bottom: 1px solid rgba(245,240,232,0.06);
+  }
+  .cs-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    min-width: 40px;
+  }
+  .cs-title-group { flex: 1; }
+  .cs-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.35);
+    margin-bottom: 6px;
+  }
+  .cs-title {
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.3;
+  }
+  .cs-metric {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: var(--gold);
+    min-width: 100px;
+    text-align: right;
+  }
+  .cs-arrow {
+    color: rgba(245,240,232,0.3);
+    font-size: 20px;
+    transition: transform 0.3s, color 0.3s;
+    min-width: 24px;
+    text-align: center;
+  }
+  .cs-card.open .cs-arrow { transform: rotate(90deg); color: var(--gold); }
+  .cs-body {
+    padding: 44px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+  }
+  .cs-section-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .cs-section-body {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(245,240,232,0.65);
+  }
+
+  /* CONTACT */
+  #contact {
+    padding: 160px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  #contact::before {
+    content: 'GROW';
+    position: absolute;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30vw;
+    color: rgba(196,86,26,0.04);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+  }
+  .contact-inner { position: relative; z-index: 1; }
+  .contact-sup {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 24px;
+  }
+  .contact-title {
+    font-size: clamp(52px, 7vw, 100px);
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+  .contact-title em { font-style: italic; color: var(--rust); }
+  .contact-sub {
+    font-size: 19px;
+    font-weight: 300;
+    color: var(--warm-grey);
+    margin-bottom: 60px;
+  }
+  .contact-cta-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .btn-outline {
+    display: inline-block;
+    padding: 16px 36px;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .btn-outline:hover { background: var(--ink); color: var(--cream); }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(245,240,232,0.4);
+    padding: 40px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+  footer a { color: rgba(245,240,232,0.4); text-decoration: none; transition: color 0.2s; }
+  footer a:hover { color: var(--gold); }
+
+  /* SCROLL ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* KEYFRAMES */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes spinRing {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* PROGRESS BAR */
+  .progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: var(--rust);
+    z-index: 9997;
+    transition: width 0.1s;
+  }
+
+  /* PARALLAX LAYER */
+  .parallax-num {
+    position: absolute;
+    right: 60px;
+    top: 120px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 220px;
+    color: rgba(196,86,26,0.06);
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+  }
+
+  @media (max-width: 900px) {
+    #hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 120px 32px 80px; }
+    nav { padding: 24px 32px; }
+    .nav-links { gap: 24px; }
+    #about { grid-template-columns: 1fr; gap: 60px; padding: 80px 32px; }
+    #results, #casestudies, #contact { padding: 80px 32px; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .cs-body { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+    .cs-card { padding: 0 32px; }
+    .cs-card.open { padding: 0 32px; }
+  }
 </style>
 </head>
 <body>
 
-<div id="cr"></div>
-<div id="crr"></div>
+<div class="noise"></div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="progress-bar" id="progress"></div>
 
-<nav id="nav">
-  <a href="#top" class="logo">Annu Singh</a>
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Annu Singh</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#results">Results</a></li>
-    <li><a href="portfolio.html">Case Studies</a></li>
-    <li><a href="https://calendly.com/annu-singh19397/new-meeting" target="_blank" class="n-cta">Book a Call</a></li>
+    <li><a href="#casestudies">Work</a></li>
+    <li><a href="https://calendly.com/annu-singh19397/new-meeting" target="_blank">Book a Call</a></li>
   </ul>
 </nav>
 
-<section class="hero" id="top">
-  <div class="ghost" aria-hidden="true">7</div>
-  <div class="hero-body">
-    <div>
-      <div class="h-tag">Content &amp; Growth Strategist · 7+ Years</div>
-      <h1>Where <em>narrative</em><br>meets numbers.</h1>
-      <p class="h-sub">I build content systems, full-funnel campaigns, and organic growth engines that turn <strong>brand stories into measurable revenue.</strong></p>
-      <div class="h-ctas">
-        <a href="https://calendly.com/annu-singh19397/new-meeting" target="_blank" class="btn">Book a Call</a>
-        <a href="portfolio.html" class="btn-ghost">See My Work</a>
-      </div>
-    </div>
-    <div class="metric-stack">
-      <div class="metric">
-        <div class="m-left">
-          <span class="m-tag">Organic Retention</span>
-          <span class="m-desc">Revenue in 2 months — zero paid media</span>
-        </div>
-        <div class="m-num">₹8.3<span class="unit">Cr</span></div>
-      </div>
-      <div class="metric">
-        <div class="m-left">
-          <span class="m-tag">GTV Scaled</span>
-          <span class="m-desc">₹100 Cr to ₹500 Cr</span>
-        </div>
-        <div class="m-num">5<span class="unit">×</span></div>
-      </div>
-      <div class="metric">
-        <div class="m-left">
-          <span class="m-tag">Email · 96+ Campaigns</span>
-          <span class="m-desc">Avg open rate — 37% reply rate</span>
-        </div>
-        <div class="m-num">53<span class="unit">%</span></div>
-      </div>
-      <div class="metric">
-        <div class="m-left">
-          <span class="m-tag">Client Onboarding</span>
-          <span class="m-desc">Lift through audience-led content</span>
-        </div>
-        <div class="m-num">45<span class="unit">%</span></div>
-      </div>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Content & Growth Strategist · 7+ Years</p>
+    <h1 class="hero-title">Where <em>narrative</em><br>meets numbers.</h1>
+    <p class="hero-sub">I build content systems, full-funnel campaigns, and organic growth engines that turn brand stories into measurable revenue.</p>
+    <div class="hero-cta">
+      <a href="https://calendly.com/annu-singh19397/new-meeting" class="btn-primary" target="_blank">Book a Call</a>
+      <a href="#casestudies" class="btn-ghost">See My Work</a>
     </div>
   </div>
-  <div class="hero-foot">
-    <span class="hf-label">Worked across</span>
-    <div class="hf-tags">
-      <span class="hf-tag">Fintech</span>
-      <span class="hf-tag">Web3 &amp; Crypto</span>
-      <span class="hf-tag">IoT</span>
-      <span class="hf-tag">Real Estate</span>
-      <span class="hf-tag">Global Agencies</span>
+  <div class="hero-right">
+    <div class="hero-graphic">
+      <div class="hero-rings">
+        <div class="ring"><div class="ring-dot"></div></div>
+        <div class="ring"><div class="ring-dot"></div></div>
+        <div class="ring"><div class="ring-dot"></div></div>
+        <div class="ring"><div class="ring-dot"></div></div>
+        <div class="ring-center">
+          <div class="ring-center-num">7+</div>
+          <div class="ring-center-label">Years of Strategy</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="about" id="about">
-  <div class="about-grid reveal">
-    <div>
-      <div class="sl">About</div>
-      <h2>Strategy.<br><em>Story.</em><br>Systems.</h2>
-    </div>
-    <div class="about-copy">
-      <p>I'm a Content &amp; Growth Strategist who turns complex products into compelling narratives — and compelling narratives into compounding revenue.</p>
-      <p>Across fintech, Web3, IoT, and global agencies, I've built the <strong>content architectures, funnel logic, and lifecycle messaging</strong> that make brands grow whether or not they go viral.</p>
-    </div>
+<!-- TICKER -->
+<div class="ticker-bar">
+  <div class="ticker-track" id="ticker">
+    <span class="ticker-item">Fintech <span>◆</span></span>
+    <span class="ticker-item">Web3 & Crypto <span>◆</span></span>
+    <span class="ticker-item">IoT <span>◆</span></span>
+    <span class="ticker-item">Real Estate <span>◆</span></span>
+    <span class="ticker-item">Global Agencies <span>◆</span></span>
+    <span class="ticker-item">Full-Funnel Campaigns <span>◆</span></span>
+    <span class="ticker-item">SEO & AEO <span>◆</span></span>
+    <span class="ticker-item">Brand Storytelling <span>◆</span></span>
+    <span class="ticker-item">Email Marketing <span>◆</span></span>
+    <span class="ticker-item">Content Systems <span>◆</span></span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item">Fintech <span>◆</span></span>
+    <span class="ticker-item">Web3 & Crypto <span>◆</span></span>
+    <span class="ticker-item">IoT <span>◆</span></span>
+    <span class="ticker-item">Real Estate <span>◆</span></span>
+    <span class="ticker-item">Global Agencies <span>◆</span></span>
+    <span class="ticker-item">Full-Funnel Campaigns <span>◆</span></span>
+    <span class="ticker-item">SEO & AEO <span>◆</span></span>
+    <span class="ticker-item">Brand Storytelling <span>◆</span></span>
+    <span class="ticker-item">Email Marketing <span>◆</span></span>
+    <span class="ticker-item">Content Systems <span>◆</span></span>
   </div>
-  <div class="pillars reveal">
-    <div class="pillar">
-      <div class="p-name">Narrative &amp; Content</div>
-      <div class="p-desc">Messaging frameworks, editorial systems, and brand voice across every touchpoint.</div>
-      <ul class="p-items">
-        <li>Brand positioning &amp; messaging</li>
-        <li>Website &amp; landing page copy</li>
-        <li>Blogs, ebooks, case studies</li>
-        <li>Video scripts &amp; webinar content</li>
-        <li>Newsletters &amp; investor comms</li>
-        <li>Pitch decks &amp; collateral</li>
-        <li>Corporate comics &amp; creative formats</li>
-      </ul>
-    </div>
-    <div class="pillar">
-      <div class="p-name">Full-Funnel Growth</div>
-      <div class="p-desc">End-to-end campaigns mapped to revenue — from awareness through retention.</div>
-      <ul class="p-items">
-        <li>TOFU / MOFU / BOFU strategy</li>
-        <li>Email marketing &amp; sequences</li>
-        <li>Paid ad &amp; performance copy</li>
-        <li>Retention &amp; lifecycle campaigns</li>
-        <li>A/B testing &amp; CRO</li>
-        <li>Lead generation strategy</li>
-        <li>Launch &amp; initiative campaigns</li>
-      </ul>
-    </div>
-    <div class="pillar">
-      <div class="p-name">SEO, AEO &amp; Organic</div>
-      <div class="p-desc">Search visibility and AI-era discoverability that compounds over time.</div>
-      <ul class="p-items">
-        <li>SEO strategy &amp; content clusters</li>
-        <li>AEO for AI-first search</li>
-        <li>Keyword &amp; competitor research</li>
-        <li>UX writing &amp; user flows</li>
-        <li>LinkedIn &amp; organic social growth</li>
-        <li>Founder thought leadership</li>
-        <li>GA4 &amp; GSC analysis</li>
-      </ul>
-    </div>
-  </div>
-</section>
+</div>
 
-<section class="results" id="results">
+<!-- RESULTS -->
+<section id="results">
+  <div class="parallax-num" id="parallaxNum">8.3</div>
   <div class="reveal">
-    <div class="sl">Selected Results</div>
-    <h2>Numbers that<br><em>speak clearly.</em></h2>
+    <p class="section-label">Selected Results</p>
+    <h2 class="section-title">Numbers that<br><em>speak clearly.</em></h2>
   </div>
-  <div class="results-grid reveal">
-    <div class="res">
-      <div class="r-tag">Fintech · Retention</div>
-      <div class="r-num">₹8.3<span class="unit">Cr</span></div>
-      <div class="r-label">Organic campaign — zero paid media — 2 months.</div>
+  <div class="stats-grid reveal">
+    <div class="stat-card">
+      <div class="stat-tag">Fintech · Retention</div>
+      <div class="stat-num" data-target="8.3" data-prefix="₹" data-suffix="Cr">₹0Cr</div>
+      <div class="stat-label">Organic Investment Campaign</div>
+      <div class="stat-context">Zero paid media. 2 months. Pure content-led retention strategy that moved the needle.</div>
     </div>
-    <div class="res">
-      <div class="r-tag">Fintech · Scale</div>
-      <div class="r-num">5<span class="unit">×</span></div>
-      <div class="r-label">GTV growth — ₹100 Cr to ₹500 Cr.</div>
+    <div class="stat-card">
+      <div class="stat-tag">Fintech · Scale</div>
+      <div class="stat-num" data-target="5" data-suffix="×">0×</div>
+      <div class="stat-label">GTV Growth</div>
+      <div class="stat-context">Scaled gross transaction volume from ₹100 Cr to ₹500 Cr through strategic content architecture.</div>
     </div>
-    <div class="res">
-      <div class="r-tag">Email Marketing</div>
-      <div class="r-num">53<span class="unit">%</span></div>
-      <div class="r-label">Avg open rate across 96+ campaigns — 37% reply rate.</div>
+    <div class="stat-card">
+      <div class="stat-tag">Email Marketing</div>
+      <div class="stat-num" data-target="53" data-suffix="%">0%</div>
+      <div class="stat-label">Average Open Rate</div>
+      <div class="stat-context">Across 96+ campaigns with a 37% reply rate — built on deep audience-first segmentation.</div>
     </div>
-    <div class="res">
-      <div class="r-tag">Web3 / IoT · Traffic</div>
-      <div class="r-num">50<span class="unit">%</span></div>
-      <div class="r-label">Website traffic lift — 20% conversion increase.</div>
+    <div class="stat-card">
+      <div class="stat-tag">Web3 / IoT · Traffic</div>
+      <div class="stat-num" data-target="50" data-suffix="%">0%</div>
+      <div class="stat-label">Website Traffic Lift</div>
+      <div class="stat-context">20% conversion increase alongside the traffic growth through SEO content clusters.</div>
     </div>
-    <div class="res">
-      <div class="r-tag">Crypto · Onboarding</div>
-      <div class="r-num">45<span class="unit">%</span></div>
-      <div class="r-label">Client onboarding increase via audience-led content.</div>
+    <div class="stat-card">
+      <div class="stat-tag">Crypto · Onboarding</div>
+      <div class="stat-num" data-target="45" data-suffix="%">0%</div>
+      <div class="stat-label">Client Onboarding Lift</div>
+      <div class="stat-context">30 B2B case studies delivered in 30 days — transformed how the brand acquired new clients.</div>
     </div>
-    <div class="res">
-      <div class="r-tag">Social · LinkedIn</div>
-      <div class="r-num">40<span class="unit">%</span></div>
-      <div class="r-label">Follower growth — 35% Twitter/X engagement lift.</div>
-    </div>
-  </div>
-</section>
-
-<section class="casestudies" id="casestudies">
-  <div class="cs-intro reveal">
-    <div>
-      <div class="sl">Case Studies</div>
-      <h2>Three projects.<br><em>Real stakes.</em></h2>
-    </div>
-    <div class="cs-intro-right">
-      <p>Behind every number is a problem that needed solving and a decision that needed making. These are the full stories — the context, the thinking, and the result.</p>
-      <a href="portfolio.html">View all case studies</a>
-    </div>
-  </div>
-  <div class="cs-cards reveal">
-    <div class="cs-card">
-      <div class="cs-num">Case Study · 01</div>
-      <h3 class="cs-card-title">30 B2B Case Studies in 30 Days for a Crypto Agency</h3>
-      <div class="cs-co">Blockwiz · Web3 Marketing Agency</div>
-      <div class="cs-stat">45<span class="unit">%</span></div>
-      <div class="cs-stat-label">Client onboarding lift</div>
-      <a href="portfolio.html#cs1" class="cs-link">Read case study</a>
-    </div>
-    <div class="cs-card">
-      <div class="cs-num">Case Study · 02</div>
-      <div class="star-badge">★ Star Project</div>
-      <h3 class="cs-card-title">Organic Retention Campaign That Drove ₹8.3 Cr in Fresh Investment</h3>
-      <div class="cs-co">BetterInvest · Fintech</div>
-      <div class="cs-stat">₹8.3<span class="unit">Cr</span></div>
-      <div class="cs-stat-label">Zero paid media — 2 months</div>
-      <a href="portfolio.html#cs2" class="cs-link">Read case study</a>
-    </div>
-    <div class="cs-card">
-      <div class="cs-num">Case Study · 03</div>
-      <h3 class="cs-card-title">Launching India's Media &amp; Entertainment AIF — Narrative &amp; GTM</h3>
-      <div class="cs-co">BetterInvest · AIF Category II</div>
-      <div class="cs-stat">₹300<span class="unit">Cr</span></div>
-      <div class="cs-stat-label">Target fund size — pitched to market</div>
-      <a href="portfolio.html#cs3" class="cs-link">Read case study</a>
+    <div class="stat-card">
+      <div class="stat-tag">Social · LinkedIn</div>
+      <div class="stat-num" data-target="40" data-suffix="%">0%</div>
+      <div class="stat-label">Follower Growth</div>
+      <div class="stat-context">35% Twitter/X engagement lift through founder thought leadership and community-first content.</div>
     </div>
   </div>
 </section>
 
-<section class="contact" id="contact">
-  <div class="sl">Let's Talk</div>
-  <h2>Where would you<br>like to <em>grow next?</em></h2>
-  <p class="contact-sub">Open to senior roles and select consulting engagements.</p>
-  <div class="contact-links">
-    <a href="https://calendly.com/annu-singh19397/new-meeting" target="_blank" class="btn" style="background:var(--gold);color:var(--dark);">Book a Call</a>
-    <a href="https://www.linkedin.com/in/annusinghmarketingspecialist007" target="_blank" class="btn-inv">LinkedIn</a>
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-left reveal">
+    <p class="section-label">About</p>
+    <h2 class="section-title" style="margin-bottom: 32px;">Strategy.<br><em>Story.</em><br>Systems.</h2>
+    <p class="about-intro">
+      I'm a Content & Growth Strategist who turns <strong>complex products into compelling narratives</strong> — and compelling narratives into compounding revenue.
+    </p>
+    <p class="about-body">
+      Across fintech, Web3, IoT, and global agencies, I've built the content architectures, funnel logic, and lifecycle messaging that make brands grow whether or not they go viral.
+    </p>
+    <div class="industries-row">
+      <span class="industry-tag">Fintech</span>
+      <span class="industry-tag">Web3 & Crypto</span>
+      <span class="industry-tag">IoT</span>
+      <span class="industry-tag">Real Estate</span>
+      <span class="industry-tag">Global Agencies</span>
+      <span class="industry-tag">B2B SaaS</span>
+    </div>
+  </div>
+  <div class="about-right reveal">
+    <div class="skills-accordion">
+      <div class="skill-group open">
+        <div class="skill-header">
+          <span class="skill-header-title">Narrative & Content</span>
+          <span class="skill-toggle">+</span>
+        </div>
+        <div class="skill-items">
+          <ul class="skill-list">
+            <li class="skill-item">Brand positioning & messaging</li>
+            <li class="skill-item">Website & landing page copy</li>
+            <li class="skill-item">Blogs, ebooks, case studies</li>
+            <li class="skill-item">Video scripts & webinar content</li>
+            <li class="skill-item">Newsletters & investor comms</li>
+            <li class="skill-item">Pitch decks & collateral</li>
+            <li class="skill-item">Corporate comics & creative formats</li>
+          </ul>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-header">
+          <span class="skill-header-title">Full-Funnel Growth</span>
+          <span class="skill-toggle">+</span>
+        </div>
+        <div class="skill-items">
+          <ul class="skill-list">
+            <li class="skill-item">TOFU / MOFU / BOFU strategy</li>
+            <li class="skill-item">Email marketing & sequences</li>
+            <li class="skill-item">Paid ad & performance copy</li>
+            <li class="skill-item">Retention & lifecycle campaigns</li>
+            <li class="skill-item">A/B testing & CRO</li>
+            <li class="skill-item">Lead generation strategy</li>
+            <li class="skill-item">Launch & initiative campaigns</li>
+          </ul>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-header">
+          <span class="skill-header-title">SEO, AEO & Organic</span>
+          <span class="skill-toggle">+</span>
+        </div>
+        <div class="skill-items">
+          <ul class="skill-list">
+            <li class="skill-item">SEO strategy & content clusters</li>
+            <li class="skill-item">AEO for AI-first search</li>
+            <li class="skill-item">Keyword & competitor research</li>
+            <li class="skill-item">UX writing & user flows</li>
+            <li class="skill-item">LinkedIn & organic social growth</li>
+            <li class="skill-item">Founder thought leadership</li>
+            <li class="skill-item">GA4 & GSC analysis</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
+<!-- CASE STUDIES -->
+<section id="casestudies">
+  <div class="reveal">
+    <p class="section-label">Case Studies</p>
+    <h2 class="section-title">Three projects.<br><em>Real stakes.</em></h2>
+  </div>
+  <div class="cs-grid reveal">
+
+    <div class="cs-card" onclick="toggleCS(this)">
+      <div class="cs-header">
+        <div class="cs-num">01</div>
+        <div class="cs-title-group">
+          <div class="cs-tag">Blockwiz · Web3 Marketing Agency</div>
+          <div class="cs-title">30 B2B Case Studies in 30 Days for a Crypto Agency</div>
+        </div>
+        <div class="cs-metric">45%</div>
+        <div class="cs-arrow">›</div>
+      </div>
+      <div class="cs-body">
+        <div>
+          <div class="cs-section-title">The Challenge</div>
+          <div class="cs-section-body">Blockwiz needed a rapid content sprint to build credibility in the crowded Web3 space. They had the results but no structured stories to show for it — and a client pipeline that stalled at the proof stage.</div>
+        </div>
+        <div>
+          <div class="cs-section-title">The Approach</div>
+          <div class="cs-section-body">Built a repeatable interview-to-publish framework. One case study per day: structured client interviews, narrative architecture, outcome mapping, and SEO-optimised publishing — all without sacrificing depth or voice.</div>
+        </div>
+        <div>
+          <div class="cs-section-title">The Result</div>
+          <div class="cs-section-body">45% lift in client onboarding within 60 days of publication. The library became the centrepiece of their new business pitch — social proof that converted cold leads into signed contracts.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-card" onclick="toggleCS(this)">
+      <div class="cs-header">
+        <div class="cs-num">02 ★</div>
+        <div class="cs-title-group">
+          <div class="cs-tag">BetterInvest · Fintech</div>
+          <div class="cs-title">Organic Retention Campaign That Drove ₹8.3 Cr in Fresh Investment</div>
+        </div>
+        <div class="cs-metric">₹8.3Cr</div>
+        <div class="cs-arrow">›</div>
+      </div>
+      <div class="cs-body">
+        <div>
+          <div class="cs-section-title">The Challenge</div>
+          <div class="cs-section-body">An existing investor base going dormant. No paid media budget. The goal: reactivate lapsed investors and drive new capital commitments through content and lifecycle messaging alone.</div>
+        </div>
+        <div>
+          <div class="cs-section-title">The Approach</div>
+          <div class="cs-section-body">Designed a 3-phase retention email sequence mapped to investor psychology. Paired it with educational long-form content addressing investor anxieties, and a LinkedIn thought leadership campaign for the founding team.</div>
+        </div>
+        <div>
+          <div class="cs-section-title">The Result</div>
+          <div class="cs-section-body">₹8.3 Cr in fresh investment across 2 months. Zero paid media spend. The campaign proved that narrative-led retention could compete with performance marketing — and outperform it on ROI.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-card" onclick="toggleCS(this)">
+      <div class="cs-header">
+        <div class="cs-num">03</div>
+        <div class="cs-title-group">
+          <div class="cs-tag">BetterInvest · AIF Category II</div>
+          <div class="cs-title">Launching India's Media & Entertainment AIF — Narrative & GTM</div>
+        </div>
+        <div class="cs-metric">₹300Cr</div>
+        <div class="cs-arrow">›</div>
+      </div>
+      <div class="cs-body">
+        <div>
+          <div class="cs-section-title">The Challenge</div>
+          <div class="cs-section-body">A first-of-its-kind Alternative Investment Fund targeting India's media & entertainment sector. No comparable product in market, no established investor playbook — the narrative had to do the heavy lifting.</div>
+        </div>
+        <div>
+          <div class="cs-section-title">The Approach</div>
+          <div class="cs-section-body">Built the complete brand narrative from zero: investor memorandum copy, pitch deck storytelling, a GTM content rollout, and a media launch strategy that positioned the fund as the category-defining vehicle.</div>
+        </div>
+        <div>
+          <div class="cs-section-title">The Result</div>
+          <div class="cs-section-body">Fund launched at ₹300 Cr target size and pitched to market with full institutional-grade positioning. The content suite became the foundation for roadshow conversations and LP onboarding.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner reveal">
+    <p class="contact-sup">Open to senior roles & select consulting</p>
+    <h2 class="contact-title">Where would you<br>like to <em>grow next?</em></h2>
+    <p class="contact-sub">Available globally · Based in India</p>
+    <div class="contact-cta-row">
+      <a href="https://calendly.com/annu-singh19397/new-meeting" class="btn-primary" target="_blank">Book a Call</a>
+      <a href="https://www.linkedin.com/in/annusinghmarketingspecialist007" class="btn-outline" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <span class="f-logo">Annu Singh</span>
-  <span>Content &amp; Growth Strategist · India · Available Globally</span>
-  <span>© 2026</span>
+  <span>© 2026 Annu Singh</span>
+  <span>Content & Growth Strategist · India · Available Globally</span>
+  <a href="https://calendly.com/annu-singh19397/new-meeting" target="_blank">Book a Call →</a>
 </footer>
 
-<a href="https://calendly.com/annu-singh19397/new-meeting" target="_blank" class="sticky">Book a Call</a>
-
 <script>
-const cr=document.getElementById('cr'),crr=document.getElementById('crr');
-document.addEventListener('mousemove',e=>{
-  cr.style.left=e.clientX+'px'; cr.style.top=e.clientY+'px';
-  setTimeout(()=>{ crr.style.left=e.clientX+'px'; crr.style.top=e.clientY+'px'; },65);
-});
-window.addEventListener('scroll',()=>{
-  document.getElementById('nav').classList.toggle('up',scrollY>8);
-});
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');}),{threshold:.07});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // Cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
+  function animateRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+  document.querySelectorAll('a, button, .cs-card, .stat-card, .skill-header').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('expanded'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('expanded'));
+  });
+
+  // Progress bar
+  const progress = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+    progress.style.width = pct + '%';
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => io.observe(r));
+
+  // Counter animation
+  function animateCounter(el) {
+    const target = parseFloat(el.dataset.target);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 1600;
+    const start = performance.now();
+    function step(now) {
+      const t = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - t, 3);
+      const val = target * ease;
+      el.textContent = prefix + (Number.isInteger(target) ? Math.round(val) : val.toFixed(1)) + suffix;
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  const counterIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animateCounter(e.target);
+        counterIO.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-target]').forEach(el => counterIO.observe(el));
+
+  // Case study toggle
+  function toggleCS(card) {
+    const isOpen = card.classList.contains('open');
+    document.querySelectorAll('.cs-card').forEach(c => c.classList.remove('open'));
+    if (!isOpen) card.classList.add('open');
+  }
+
+  // Accordion
+  document.querySelectorAll('.skill-header').forEach(h => {
+    h.addEventListener('click', () => {
+      const group = h.closest('.skill-group');
+      const isOpen = group.classList.contains('open');
+      document.querySelectorAll('.skill-group').forEach(g => g.classList.remove('open'));
+      if (!isOpen) group.classList.add('open');
+    });
+  });
+
+  // Parallax number on scroll
+  const parNum = document.getElementById('parallaxNum');
+  window.addEventListener('scroll', () => {
+    if (!parNum) return;
+    const offset = window.scrollY * 0.18;
+    parNum.style.transform = `translateY(${offset}px)`;
+  });
 </script>
 </body>
 </html>
